@@ -207,21 +207,3 @@ class LandController extends Controller
     }
 }
 
-
-/*
-    Mostrar por ajuste de reserva como va el flow
-    --3 tablas solo tomando el IOD = 1  y que el otro sea aprobacion y que el id Detalle = 
-    Join con entidades con usuarios que aprueba y usuario operante 
-    Selet numero, monto, fecha registro, usuario x2, nivel,  creando vista apro y rechazado
-
-    IdDocumento, IdDocumentDetalle, IdObjcet x2 : where
-
-    //----------------------------------------------
-
-    GetVwAprobacionesXFlow
-    IdDocumento, IdDocumentDetalle, IdObjcet x2 : parametros
-
-    Prueba: SiniestroAnalisis (observacion, estatus)
-
-
-*/
