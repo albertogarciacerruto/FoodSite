@@ -45,8 +45,9 @@
                                     <td>NO</td>  
                                   @endIf
                                   <td class="text-center">
+                                      <a href="{{ url('products_edit', encrypt($product->id)) }}"><i class="menu-icon fa fa-edit" title="editar"></i></a>
                                       <a href="{{ url('product_delete', encrypt($product->id)) }}"><i class="menu-icon fa fa-trash" title="Eliminar"></i></a>
-                                      <a href="{{ url('product_status', encrypt($product->id)) }}"><i class="menu-icon fa fa-box" title="Estatus"></i></a>
+                                      <a href="{{ url('product_status', encrypt($product->id)) }}"><i class="menu-icon fa fa-eye" title="Estatus"></i></a>
                                   </td>
                               </tr>
                               @endforeach

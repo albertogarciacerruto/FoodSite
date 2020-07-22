@@ -79,9 +79,13 @@
             @foreach($menu as $item)
                 @if($item->category_id == $category->id)
                 <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class=" col-offset-2 single_delicious d-flex align-items-center">
+                    <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
+                            @if($item->video != 'public/product.jpg')
+                            <video src="../storage/app/{{$item->video}}" autoplay muted loop height="120" width="120"></video>
+                            @else
                             <img height="120" width="120" src="../storage/app/{{$item->image}}" alt="{{ $item->image }}">
+                            @endif
                         </div>
                         <div class="info">
                             <h3>{{ $item->name }}</h3>

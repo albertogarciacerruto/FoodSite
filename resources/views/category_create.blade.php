@@ -8,7 +8,7 @@
       <div class="row">
         <div class="form-group col-lg-12">
             <label class="col-form-label">Nombre</label>
-            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name">
+            <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required>
             @if ($errors->has('name'))
                 <div class="text-danger">
                     <strong>{{ $errors->first('name') }}</strong>

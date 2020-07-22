@@ -205,5 +205,36 @@ class LandController extends Controller
         $product = \DB::table('products')->where('id', '=', decrypt($id_product))->update(['view' => $status]);
         return redirect('products');
     }
+
+    //
+    public function edit($id_product)
+    {
+        $product = \DB::table('products')->where('id', '=', decrypt($id_product))->first();
+        $list_allergens = Allergen::select('id','name')->get();
+        $list_categories = Category::select('id','name')->get();
+        return view('edit_product', compact('product', 'list_allergens', 'list_categories'));
+    }
+    public function update(Request $request)
+    {
+        $name = $request->name;
+        $description = $request->description;
+        $amount = $request->amount;
+        $id = $request->id;
+
+        $update_name = \DB::table('products')->where('id', $id)->update(['name' => $name, 'description' => $description, 'amount' => $amount]);
+        if ($request->hasFile('image'))
+        {
+            $photo = $request->file('image')->store('public');
+            $image = \DB::table('products')->where('id','=', $id)->update(['image' => $photo]);
+        }
+        if ($request->hasFile('video'))
+        {
+            $video = $request->file('video')->store('public');
+            $image = \DB::table('products')->where('id','=', $id)->update(['video' => $video]);
+        } 
+
+        return redirect('products');
+    }
+
 }
 

@@ -37,5 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/register_product', 'LandController@product');
     Route::post('/register_product', 'LandController@register_product');
     Route::get('/product_delete/{id}', 'LandController@destroy_product');
+    Route::get('/products_edit/{id}', 'LandController@edit');
+    Route::post('/products_edit', 'LandController@update');
     Route::get('/product_status/{id}', 'LandController@status_product');
 });
