@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $categories = \DB::table('categories')->get();
-    $menu = \DB::table('products')->get();
+    $menu = \DB::table('products')->where('view', 'true')->get();
     return view('welcome', compact('menu', 'categories'));
 });
 

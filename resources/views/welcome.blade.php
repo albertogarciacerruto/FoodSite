@@ -79,7 +79,7 @@
             @foreach($menu as $item)
                 @if($item->category_id == $category->id)
                 <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
+                    <div class=" col-offset-2 single_delicious d-flex align-items-center">
                         <div class="thumb">
                             <img height="120" width="120" src="../storage/app/{{$item->image}}" alt="{{ $item->image }}">
                         </div>

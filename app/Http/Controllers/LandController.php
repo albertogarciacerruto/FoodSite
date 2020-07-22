@@ -12,18 +12,18 @@ class LandController extends Controller
     /*
         Para las categories, se consultan, se crean, y se eliminan de la base de datos
     */
-
+    //Metodo que muestra todas las categorias registradas
     public function categories()
     {
         $categories = \DB::table('categories')->get();
         return view('list_category', compact('categories'));
     }
-
+    //Metodo que redirige al formulario de registro de categoria
     public function category()
     {
         return view('category_create');
     }
-
+    //Metodo que porcesa el registro de la categoria
     public function register_category(Request $request)
     {
         $name = $request->name;
@@ -49,7 +49,7 @@ class LandController extends Controller
 
         return redirect('categories');
     }
-
+    //metodo que permite eliminar una categoria
     public function destroy_category($id_category)
     {
         $category = \DB::table('categories')->where('id', '=', decrypt($id_category))->delete();
@@ -59,18 +59,18 @@ class LandController extends Controller
     /*
         Para Los Alergenos, se consultan, se crean, y se eliminan de la base de datos
     */
-
+    //Metodo que permite mostrar todo los Alergenos registrados
     public function allergens()
     {
         $allergens = \DB::table('allergens')->get();
         return view('list_allergen', compact('allergens'));
     }
-
+    //Metodo que redirige al formulario de registro del Alergeno
     public function allergen()
     {
         return view('allergen_create');
     }
-
+    //Metodo encargado del registro de los Alergenos
     public function register_allergen(Request $request)
     {
         $name = $request->name;
@@ -96,7 +96,7 @@ class LandController extends Controller
 
         return redirect('allergens');
     }
-
+    //Metodo que permite eliminar un alergeno especifico
     public function destroy_allergen($id_allergen)
     {
         $allergen = \DB::table('allergens')->where('id', '=', decrypt($id_allergen))->delete();
@@ -106,13 +106,13 @@ class LandController extends Controller
     /*
         Para los platos, se consultan, se crean, y se eliminan de la base de datos
     */
-
+    //Meotod que muestra todos los platos (productos) del sistema
     public function products()
     {
         $products = \DB::table('products')->get();
         return view('list_product', compact('products'));
     }
-
+    //Metodo que redirige al formulario de registro del producto 
     public function product()
     {
         $list_allergens = Allergen::get();
@@ -120,7 +120,7 @@ class LandController extends Controller
         return view('product_create', compact('list_allergens', 'list_categories'));
     }
     
-
+    //Metodo que procesa el registro del producto
     public function register_product(Request $request)
     {
         $name = $request->name;
@@ -186,13 +186,13 @@ class LandController extends Controller
 
         return redirect('products');
     }
-
+    //Metodo que permite eliminar fisicamente un producto de la base de datos
     public function destroy_product($id_product)
     {
         $product = \DB::table('products')->where('id', '=', decrypt($id_product))->delete();
         return redirect('products');
     }
-
+    //Metodo que cambia el estato de visibilidad de un plato o producto
     public function status_product($id_product)
     {
         $current = \DB::table('products')->where('id', '=', decrypt($id_product))->first();

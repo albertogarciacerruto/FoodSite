@@ -84,7 +84,7 @@
                       <option value=""></option>
                       <optgroup label="Alergenos">
                         @foreach($list_allergens as $allergen)
-                          <option value="{{ $allergen->id }}">{{ $allergen->id }}</option>
+                          <option value="{{ $allergen->id }}">{{ $allergen->name }}</option>
                         @endforeach
                       </optgroup>
                   </select>

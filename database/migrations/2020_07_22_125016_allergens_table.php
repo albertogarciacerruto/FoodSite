@@ -13,10 +13,10 @@ class AllergensTable extends Migration
      */
     public function up()
     {
-        Schema::create('allergen_product', function (Blueprint $table) {
+        Schema::create('allergens', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('product_id');
-            $table->integer('allergen_id');
+            $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class AllergensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('allergen_product');
+        Schema::dropIfExists('allergens');
     }
 }
